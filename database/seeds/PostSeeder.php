@@ -2,6 +2,7 @@
 
 use App\Post;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class PostSeeder extends Seeder
 {
