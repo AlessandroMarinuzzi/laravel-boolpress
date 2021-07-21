@@ -10,6 +10,12 @@
             <h5 class="post_author">{{$post->author}}</h5>
         </div>
         <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('admin.posts.edit',$post->id)}}">Edit</a></button>
-        <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('admin.posts.index')}}">Posts</a></button>
+        <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('admin.posts.index')}}">Back to Posts</a></button>
+            <form class="mt-4" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                @csrf
+                @method("DELETE")
+
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
     </div>
 @endsection
