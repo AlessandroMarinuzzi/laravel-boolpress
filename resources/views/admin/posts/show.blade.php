@@ -9,6 +9,6 @@
             <p class="post_body">{{$post->body}}</p>
             <h5 class="post_author">{{$post->author}}</h5>
         </div>
-        <button class="btn btn-primary text-white mt-3"><a href="">Edit</a></button>
+        <button class="btn btn-primary mt-3"><a class="text-white" href="">Edit</a></button>
     </div>
 @endsection

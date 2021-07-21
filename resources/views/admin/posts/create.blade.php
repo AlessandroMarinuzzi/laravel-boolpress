@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="author">author</label>
             <input type="text" name="author" id="author" placeholder="Insert author Full Name" aria-describedby="author">
-            <small id="author">Insert Comic Author</small>
+            <small id="author">Type Author Name</small>
         </div>
         <button type="submit" class="btn btn-primary text-white">Generate</button>
     </form>
