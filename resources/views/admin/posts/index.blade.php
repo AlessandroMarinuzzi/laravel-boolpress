@@ -22,7 +22,7 @@
                 <td>{{$post->author}}</td>
                 <td>
                     <a href="{{route('admin.posts.show', $post)}}">View</a> | 
-                    <a href="">Edit</a>
+                    <a href="{{route('admin.posts.edit',$post->id)}}">Edit</a>
                     <a href="">Delete</a>
                 </td>
             </tr>
