@@ -10,5 +10,6 @@
             <h5 class="post_author">{{$post->author}}</h5>
         </div>
         <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('admin.posts.edit',$post->id)}}">Edit</a></button>
+        <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('admin.posts.index')}}">Posts</a></button>
     </div>
 @endsection
