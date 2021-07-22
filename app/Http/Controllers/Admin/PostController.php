@@ -37,14 +37,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->author = $request->author;
-        
-        $post->save();
-        //dd($comic);
-
+        $validateData = $request->validate([
+            'title' => 'required | min:5 | max:255',
+            'body' => 'required',
+            'author' => 'required'
+        ]);
+        Post::create($validateData);
         return redirect()->route('admin.posts.index');
     }
 
@@ -79,8 +77,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->all());
-        return redirect()->route('admin.posts.show', $post->id);
+        $validateData = $request->validate([
+            'title' => 'required | max:255 | min:5',
+            'body' => 'required', // poteva essere nullable se impostato cosi in migration.
+            'author' => 'required'
+        ]);
+        $post->update($validateData);
+        return redirect()->route('admin.posts.index');
     }
 
     /**
