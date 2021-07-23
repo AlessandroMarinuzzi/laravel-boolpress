@@ -24,6 +24,17 @@
             <input name="title" id="title" placeholder="Insert Title" value="{{$post->title}}" required minlength="5" maxlength="255"></input>
             <small id="helpId">Insert Title</small>
         </div>
+
+        <div class="form-group d-flex flex-column">
+            <label for="image">Image</label>
+            <input name="image" id="image" placeholder="Insert image" value="{{$post->image}}" required></input>
+            <small id="helpId">Insert Image</small>
+        </div>
+
+        <div class="cover">
+            <img src="{{asset($post->image)}}" alt="{{$post->title}}">
+        </div>
+
         <div class="form-group d-flex flex-column">
             <label for="body">Body</label>
             <textarea name="body" id="body" rows="5" required>{{$post->title}}</textarea>

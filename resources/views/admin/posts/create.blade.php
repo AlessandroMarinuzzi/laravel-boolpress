@@ -13,6 +13,11 @@
             <small id="helpId">Insert Title</small>
         </div>
         <div class="form-group d-flex flex-column">
+            <label for="image">Image</label>
+            <input name="image" id="image" placeholder="Insert image" value="{{old('image')}}" required></input>
+            <small id="helpId">Insert Image</small>
+        </div>
+        <div class="form-group d-flex flex-column">
             <label for="body">Body</label>
             <textarea name="body" id="body" rows="5" required>{{old('body')}}</textarea>
             <small id="helpId">Insert Post Body</small>

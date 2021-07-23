@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link">Home</a>
+                            <a href="{{route('welcome')}}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('about')}}" class="nav-link">About</a>

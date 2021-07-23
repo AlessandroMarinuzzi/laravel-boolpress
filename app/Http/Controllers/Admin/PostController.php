@@ -39,6 +39,7 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
+            'image' => 'required | image | max:50',
             'body' => 'required',
             'author' => 'required'
         ]);
@@ -79,6 +80,7 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | max:255 | min:5',
+            'image' => 'required | image | max:50',
             'body' => 'required', // poteva essere nullable se impostato cosi in migration.
             'author' => 'required'
         ]);
