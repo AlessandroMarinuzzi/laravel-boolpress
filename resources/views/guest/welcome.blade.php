@@ -82,7 +82,7 @@
             </div>
 
             <div class="links">
-                <a href="{{route('posts.index')}}">Posts</a>
+                <a href="{{route('posts.index')}}">Get Started</a>
             </div>
         </div>
     </div>

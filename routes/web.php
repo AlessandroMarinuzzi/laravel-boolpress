@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // User Routes
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+Route::get('/', 'PageController@index');
+Route::get('about', 'PageController@about');
+Route::get('contacts', 'PageController@contacts');
+
 Route::resource('posts', PostController::class)->only('index', 'show');
 
 // Admin Routes
