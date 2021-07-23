@@ -5,18 +5,25 @@
 @section('content')
 <div class="container">
     <h1>Add New Post</h1>
-    <form class="add_post_form" action="{{route('admin.posts.store')}}" method="POST">
+    <form class="add_post_form" action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group d-flex flex-column">
             <label for="title">Title</label>
             <input name="title" id="title" placeholder="Insert Title" value="{{old('title')}}" required minlength="5" maxlength="255"></input>
             <small id="helpId">Insert Title</small>
         </div>
+
         <div class="form-group d-flex flex-column">
-            <label for="image">Image</label>
+            <!-- <label for="image">Image</label>
             <input name="image" id="image" placeholder="Insert image" value="{{old('image')}}" required></input>
-            <small id="helpId">Insert Image</small>
+            <small id="helpId">Insert Image</small> -->
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image">
         </div>
+        @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        
         <div class="form-group d-flex flex-column">
             <label for="body">Body</label>
             <textarea name="body" id="body" rows="5" required>{{old('body')}}</textarea>

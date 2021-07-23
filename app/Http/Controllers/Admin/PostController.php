@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -43,6 +44,10 @@ class PostController extends Controller
             'body' => 'required',
             'author' => 'required'
         ]);
+
+        $file_path = Storage::put('post_images', $validateData['image']); //post_images/isdnmdgpo.jpg
+        $validateData['image'] = $file_path;
+
         Post::create($validateData);
         return redirect()->route('admin.posts.index');
     }
