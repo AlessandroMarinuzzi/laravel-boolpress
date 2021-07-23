@@ -13,11 +13,11 @@ class PageController extends Controller
 
     public function about()
     {
-        return view('guests.about');
+        return view('guest.about');
     }
 
     public function contacts()
     {
-        return view('guests.contacts');
+        return view('guest.contacts');
     }
 }

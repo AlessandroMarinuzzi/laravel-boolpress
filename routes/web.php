@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // User Routes
-Route::get('/', 'PageController@index');
-Route::get('about', 'PageController@about');
-Route::get('contacts', 'PageController@contacts');
+Route::get('/', 'PageController@index')->name('welcome');
+Route::get('about', 'PageController@about')->name('about');
+Route::get('contacts', 'PageController@contacts')->name('contacts');
 
 Route::resource('posts', PostController::class)->only('index', 'show');
 

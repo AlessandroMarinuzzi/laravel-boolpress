@@ -37,13 +37,13 @@
                             <a href="{{ url('/') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">About</a>
+                            <a href="{{route('about')}}" class="nav-link">About</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('posts.index')}}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contacts</a>
+                            <a href="{{route('contacts')}}" class="nav-link">Contacts</a>
                         </li>
                     </ul>
 
