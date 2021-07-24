@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>IMAGE</th>
                 <th>TITLE</th>
                 <th>BODY</th>
                 <th>AUTHOR</th>

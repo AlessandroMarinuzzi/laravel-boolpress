@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form class="add_post_form" action="{{route('admin.posts.update', $post->id)}}" method="POST">
+    <form class="add_post_form" action="{{route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group d-flex flex-column">
@@ -26,9 +26,11 @@
         </div>
 
         <div class="form-group d-flex flex-column">
-            <label for="image">Image</label>
+            <!-- <label for="image">Image</label>
             <input name="image" id="image" placeholder="Insert image" value="{{$post->image}}" required></input>
-            <small id="helpId">Insert Image</small>
+            <small id="helpId">Insert Image</small> -->
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image">
         </div>
 
         <div class="cover">

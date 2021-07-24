@@ -40,13 +40,14 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
-            'image' => 'required | image | max:50',
+            'image' => 'nullable',
             'body' => 'required',
             'author' => 'required'
         ]);
 
-        $file_path = Storage::put('post_images', $validateData['image']); //post_images/isdnmdgpo.jpg
-        $validateData['image'] = $file_path;
+            $file_path = Storage::put('post_images', $validateData['image']);
+            $validateData['image'] = $file_path;
+        
 
         Post::create($validateData);
         return redirect()->route('admin.posts.index');
@@ -85,10 +86,18 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'required | image | max:50',
+            'image' => 'nullable',
             'body' => 'required', // poteva essere nullable se impostato cosi in migration.
             'author' => 'required'
         ]);
+
+        
+
+        
+            $file_path = Storage::put('post_images', $validateData['image']);
+            $validateData['image'] = $file_path;
+        
+
         $post->update($validateData);
         return redirect()->route('admin.posts.index');
     }
