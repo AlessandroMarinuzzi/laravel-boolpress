@@ -1,7 +1,11 @@
 @component('mail::message')
 # Introduction
 
-The body of your message.
+You received this message:
+<p>{{$contact->message}}</p>
+
+From:
+<span>{{$contact->email}}</span>
 
 @component('mail::button', ['url' => ''])
 Button Text
