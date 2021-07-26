@@ -47,6 +47,17 @@
             <input type="text" name="author" id="author" placeholder="Insert author Full Name" aria-describedby="author" value="{{$post->author}}" required>
             <small id="author">Type Author Name</small>
         </div>
+
+        <div class="form-group">
+            <label for="category_id">Categories</label>
+            <select class="form-control" name="category_id" id="category_id">
+                <option selected value="">Select Category</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}" {{$category->id == old('category_id',$post->category_id)  ? 'selected' : ''}}>{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary text-white">Generate</button>
     </form>
 </div>

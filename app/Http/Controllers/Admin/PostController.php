@@ -46,7 +46,7 @@ class PostController extends Controller
             'image' => 'required',
             'body' => 'required',
             'author' => 'required',
-            'category_id' => 'nullable | exists: categories, id'
+            'category_id' => 'nullable | exists:categories,id'
         ]);
         // ddd($validateData);
 
@@ -77,7 +77,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories=Category::all();
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
@@ -94,7 +95,7 @@ class PostController extends Controller
             'image' => 'required',
             'body' => 'required',
             'author' => 'required',
-            'category_id' => 'nullable | exists: categories, id'
+            'category_id' => 'nullable | exists:categories,id'
         ]);
 
         
