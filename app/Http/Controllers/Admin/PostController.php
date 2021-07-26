@@ -45,7 +45,8 @@ class PostController extends Controller
             'title' => 'required | min:5 | max:255',
             'image' => 'required',
             'body' => 'required',
-            'author' => 'required'
+            'author' => 'required',
+            'category_id' => 'nullable | exists: categories, id'
         ]);
         // ddd($validateData);
 
@@ -92,7 +93,8 @@ class PostController extends Controller
             'title' => 'required | max:255 | min:5',
             'image' => 'required',
             'body' => 'required',
-            'author' => 'required'
+            'author' => 'required',
+            'category_id' => 'nullable | exists: categories, id'
         ]);
 
         
