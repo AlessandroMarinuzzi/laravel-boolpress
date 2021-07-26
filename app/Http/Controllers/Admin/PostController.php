@@ -38,12 +38,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
-            'image' => 'nullable',
+            'image' => 'required',
             'body' => 'required',
             'author' => 'required'
         ]);
+        // ddd($validateData);
 
             $file_path = Storage::put('post_images', $validateData['image']);
             $validateData['image'] = $file_path;
@@ -86,8 +88,8 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'nullable',
-            'body' => 'required', // poteva essere nullable se impostato cosi in migration.
+            'image' => 'required',
+            'body' => 'required',
             'author' => 'required'
         ]);
 
