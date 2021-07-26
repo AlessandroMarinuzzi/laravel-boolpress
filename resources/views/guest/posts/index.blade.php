@@ -9,6 +9,9 @@
             <div class="col-md-4">
                 <div class="post_card p-2 border border-primary my-2" >
                     <img class="w-100" src="{{asset($post->image)}}" alt="{{$post->title}}">
+                    <h5 class="category mt-2">
+                        Category: {{$post->category ? $post->category->name : 'Uncategorized'}}
+                    </h5>
                     <h2 class="post_title">{{$post->title}}</h2>
                     <p class="post_body">{{$post->body}}</p>
                     <h5 class="post_author">{{$post->author}}</h5>

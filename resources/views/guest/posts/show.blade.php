@@ -6,6 +6,9 @@
     <div class="container">
         <div class="post_card p-2">
             <h2 class="post_title">{{$post->title}}</h2>
+            <h5 class="category">
+                <a href="{{route('categories.show', $post->category->slug)}}">Category: {{$post->category ? $post->category->name : 'Uncategorized'}}</a>
+            </h5>
             <img class="cover" src="{{asset($post->image)}}" alt="{{$post->title}}">
             <p class="post_body">{{$post->body}}</p>
             <h5 class="post_author">{{$post->author}}</h5>

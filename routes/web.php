@@ -27,6 +27,9 @@ Route::post('contacts', 'ContactController@storeAndSend')->name('contacts.send')
 #Post controller guest side.
 Route::resource('posts', PostController::class)->only('index', 'show');
 
+#Categories
+Route::get('categories/{category:slug}','CategoryController@show')->name('categories.show');
+
 // Admin Routes
 Auth::routes();
 
