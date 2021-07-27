@@ -21,7 +21,7 @@
         @method('PUT')
         <div class="form-group d-flex flex-column">
             <label for="title">Title</label>
-            <input name="title" id="title" placeholder="Insert Title" value="{{$post->title}}" required minlength="5" maxlength="255"></input>
+            <input name="title" id="title" placeholder="Insert Title" value="{{$post->title}}" required minlength="5" maxlength="255">
             <small id="helpId">Insert Title</small>
         </div>
 
