@@ -48,7 +48,8 @@ class PostController extends Controller
             'image' => 'required | mimes:jpeg,png,bmp,gif,svg,jpg | max:500',
             'body' => 'required',
             'author' => 'required',
-            'category_id' => 'nullable | exists:categories,id'
+            'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id'
         ]);
         // ddd($validateData);
 
@@ -56,7 +57,8 @@ class PostController extends Controller
             $validateData['image'] = $file_path;
         
 
-        Post::create($validateData);
+        $post = Post::create($validateData);
+        $post -> tags()->attach($request->tags);
         return redirect()->route('admin.posts.index');
     }
 
