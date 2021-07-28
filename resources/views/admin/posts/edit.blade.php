@@ -34,7 +34,7 @@
         </div>
 
         <div class="cover">
-            <img src="{{asset($post->image)}}" alt="{{$post->title}}">
+            <img src="{{asset('storage/' . $post->image)}}" width="300" alt="{{$post->title}}">
         </div>
 
         <div class="form-group d-flex flex-column">

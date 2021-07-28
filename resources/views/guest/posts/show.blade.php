@@ -16,7 +16,7 @@
                 <span>Tags not assigned yet.</span>
                 @endforelse
             </div>
-            <img class="cover" src="{{asset($post->image)}}" alt="{{$post->title}}">
+            <img class="cover" src="{{asset('storage/' . $post->image)}}" width="300" alt="{{$post->title}}">
             <p class="post_body">{{$post->body}}</p>
             <h5 class="post_author">{{$post->author}}</h5>
         </div>

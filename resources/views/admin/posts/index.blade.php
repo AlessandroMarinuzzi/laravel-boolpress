@@ -19,7 +19,7 @@
             <tr>
                 <td>{{$post->id}}</td>
                 <td>
-                    <img class="w-50" src="{{asset($post->image)}}" alt="{{$post->title}}">
+                    <img class="w-50" src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}">
                 </td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->body}}</td>

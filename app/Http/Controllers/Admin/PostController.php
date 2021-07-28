@@ -45,13 +45,13 @@ class PostController extends Controller
         
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
-            'image' => 'nullable',
+            'image' => 'nullable | mimes:jpg,jpeg,png | max:500',
             'body' => 'required',
             'author' => 'required',
             'category_id' => 'nullable | exists:categories,id',
             'tags' => 'nullable | exists:tags,id'
         ]);
-        // ddd($validateData);
+        //ddd($validateData);
 
             $file_path = Storage::put('post_images', $validateData['image']);
             $validateData['image'] = $file_path;
@@ -97,10 +97,11 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'nullable',
+            'image' => 'nullable | mimes:jpg,jpeg,png | max:500',
             'body' => 'required',
             'author' => 'required',
-            'category_id' => 'nullable | exists:categories,id'
+            'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id'
         ]);
 
         
