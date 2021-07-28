@@ -9,6 +9,13 @@
             <h5 class="category">
                 <a href="{{route('categories.show', $post->category->slug)}}">Category: {{$post->category ? $post->category->name : 'Uncategorized'}}</a>
             </h5>
+            <div class="tags">
+                @forelse($post->tags as $tag)
+                <span>{{$tag->name}}</span>
+                @empty
+                <span>Tags not assigned yet.</span>
+                @endforelse
+            </div>
             <img class="cover" src="{{asset($post->image)}}" alt="{{$post->title}}">
             <p class="post_body">{{$post->body}}</p>
             <h5 class="post_author">{{$post->author}}</h5>
