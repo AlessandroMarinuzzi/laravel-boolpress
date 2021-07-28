@@ -58,6 +58,8 @@
             </select>
         </div>
 
+        
+
         <button type="submit" class="btn btn-primary text-white">Generate</button>
     </form>
 </div>
