@@ -45,7 +45,7 @@ class PostController extends Controller
         
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
-            'image' => 'nullable | mimes:jpeg,png,bmp,gif,svg,jpg | max:500',
+            'image' => 'nullable',
             'body' => 'required',
             'author' => 'required',
             'category_id' => 'nullable | exists:categories,id',
@@ -82,7 +82,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories=Category::all();
-        return view('admin.posts.edit', compact('post','categories'));
+        $tags=Tag::all();
+        return view('admin.posts.edit', compact('post','categories','tags'));
     }
 
     /**
@@ -96,7 +97,7 @@ class PostController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'nullable | mimes:jpeg,png,bmp,gif,svg,jpg | max:500',
+            'image' => 'nullable',
             'body' => 'required',
             'author' => 'required',
             'category_id' => 'nullable | exists:categories,id'
@@ -110,6 +111,7 @@ class PostController extends Controller
         
 
         $post->update($validateData);
+        $post->tags()->sync($request->tags);
         return redirect()->route('admin.posts.index');
     }
 
@@ -120,7 +122,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
+    {   
+        $post->tags()->detach();
         $post->delete();
         return redirect()->route('admin.posts.index');
     }

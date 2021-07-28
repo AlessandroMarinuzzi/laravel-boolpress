@@ -58,7 +58,21 @@
             </select>
         </div>
 
-        
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <select multiple name="tags[]" id="tags" class="form-control">
+                <option disabled value="">Select Tags</option>
+                @if($tags)
+                    @foreach($tags as $tag)
+                        @if($errors->any())
+                            <option value="{{$tag->id}}" {{in_array($tag->id, old('tags')) ? 'selected' : " "}}>{{$tag->name}}</option>
+                        @else
+                            <option value="{{$tag->id}}" {{$post->tags->contains($tag) ? 'selcted' : " "}}>{{$tag->name}}</option>
+                        @endif
+                    @endforeach
+                @endif
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary text-white">Generate</button>
     </form>
