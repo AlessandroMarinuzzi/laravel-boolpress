@@ -43,7 +43,7 @@ class PostController extends Controller
         
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:255',
-            'image' => 'required',
+            'image' => 'required | mimes:jpeg,png,bmp,gif,svg,jpg | max:500',
             'body' => 'required',
             'author' => 'required',
             'category_id' => 'nullable | exists:categories,id'

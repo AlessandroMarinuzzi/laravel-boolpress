@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<section class="posts-category container">
+@extends('layouts.app')
+
+@section('content')
+    <section class="posts-category container">
         <h1>Posts in {{$category->name}}</h1>
 
         @forelse($category->posts as $post)
@@ -22,5 +16,4 @@
         <h3>Nothing to show</h3>
         @endforelse
     </section>
-</body>
-</html>
+@endsection
