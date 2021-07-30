@@ -3,6 +3,7 @@
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\PostResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('posts', function () {
-    $posts = Post::with(['category','tags'])->paginate();
-    return $posts;
+Route::get('posts', 'API\PostController@index');
+
+Route::get('posts/{post}', function (Post $post) {
+    return new PostResource(Post::find($post));
 });

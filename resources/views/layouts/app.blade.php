@@ -45,6 +45,9 @@
                         <li class="nav-item">
                             <a href="{{route('contacts')}}" class="nav-link">Contacts</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">VUE POSTS</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

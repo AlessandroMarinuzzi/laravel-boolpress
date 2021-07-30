@@ -27,7 +27,10 @@ Route::post('contacts', 'ContactController@storeAndSend')->name('contacts.send')
 #Post controller guest side.
 Route::resource('posts', PostController::class)->only('index', 'show');
 
-
+#API VUE route
+Route::get('blog', function () {
+    return view('blog');
+});
 // Admin Routes
 Auth::routes();
 
